@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Shop from "./pages/shop/shop";
 import Header from "./component/Header/Header";
 import SignInAndSignUp from "./pages/SignInAndSignUp/SignInAndSignUp";
-import { auth, signInWithGoogle } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 const HatsPage = () => (
   <div>
     <h1>Holaaaaaaaaaa</h1>
@@ -13,11 +13,18 @@ const HatsPage = () => (
 );
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
   useEffect(() => {
-    let unsubscribe;
-    unsubscribe = auth.onAuthStateChanged((usr) => {
-      setUser(usr);
+    let unsubscribe = null;
+    unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapshot) => {
+          console.log(snapshot);
+          setUser({ id: snapshot.id, ...snapshot.data() });
+        });
+        console.log(user);
+      }
     });
     return () => {
       unsubscribe();
