@@ -24,6 +24,11 @@
     }
     .price {
       width: 10%;
+      display: flex;
+      flex-direction: row;
+    }
+    .sign {
+      margin-right: 2px;
     }
   }
 }
