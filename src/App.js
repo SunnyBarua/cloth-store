@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user-actions";
 
 function App(props) {
+  console.log(props);
   let unsubscribe = null;
 
   useEffect(() => {
