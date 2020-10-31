@@ -1,0 +1,24 @@
+.top-background {
+  width: 99%;
+  height: 500px;
+  opacity: 0.9;
+  background-size: cover;
+  margin-bottom: 40px;
+}
+.top-description {
+  position: absolute;
+  bottom: 20%;
+  left: 12%;
+}
+.buy {
+  height: 40px !important;
+  width: 120px !important;
+  background-color: tomato;
+  color: white;
+  border: white;
+  font-size: 20px;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  justify-content: center;
+}
