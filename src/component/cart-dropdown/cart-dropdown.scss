@@ -20,8 +20,13 @@
     height: 240px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: auto;
   }
+
+  .scrollable-element {
+    scrollbar-width: thin;
+  }
+
   button {
     margin-top: auto;
   }

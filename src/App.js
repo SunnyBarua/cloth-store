@@ -43,9 +43,8 @@ function App(props) {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route path="/shop">
-          <Shop />
-        </Route>
+        <Route path="/shop" component={Shop} />
+
         <Route exact path="/signin">
           {props.currentUser ? <Redirect to="/" /> : <SignInAndSignUp />}
         </Route>
